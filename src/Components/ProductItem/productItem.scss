@@ -1,0 +1,33 @@
+.item {
+  padding: 15px;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-family: 'Montserrat', sans-serif;
+  transition: 0.5s;
+  margin-bottom: 40px;
+}
+.item:hover {
+  box-shadow: 3px 3px 3px 3px;
+  cursor: pointer;
+}
+.item__title {
+  font-size: 30px;
+  text-align: center;
+}
+.item__img {
+  transform: scale(0.7);
+}
+* {
+  box-sizing: border-box;
+}
+.item__snippet {
+  font-weight: 600;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+.link {
+  color: black;
+  text-decoration: none;
+}
