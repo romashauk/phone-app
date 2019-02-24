@@ -10,7 +10,6 @@ class Sort extends Component {
     this.props.dispatch(itemsOperations.SearchItem(e.target.value));
   };
   SortByAge = () => {
-    console.log('as');
     this.props.dispatch(itemsOperations.SortByAge());
   };
   SortByAlphabetical = () => {
@@ -26,26 +25,23 @@ class Sort extends Component {
     return (
       <div className="sort">
         <form>
-          <label for="search">
-            Search:
-            <input onChange={this.SearchItem} id="search" type="text" />
-          </label>
-          <label for="select">
-            Sort By:
-            <select
-              value={value}
-              onClick={
-                value === 'age' ? this.SortByAge : this.SortByAlphabetical
-              }
-              onChange={this.sortChange}
-              id="select"
-            >
-              <option value="age">Newest</option>
-              <option value="alphabetical" selected>
-                Alphabetical
-              </option>
-            </select>
-          </label>
+          <input
+            placeholder="I am looking for"
+            onChange={this.SearchItem}
+            id="search"
+            type="text"
+            className="sort__field"
+          />
+          <select
+            value={value}
+            onClick={value === 'age' ? this.SortByAge : this.SortByAlphabetical}
+            onChange={this.sortChange}
+            id="select"
+            className="sort__select"
+          >
+            <option value="age">Newest</option>
+            <option value="alphabetical">Alphabetical</option>
+          </select>
         </form>
       </div>
     );

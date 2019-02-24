@@ -5,13 +5,13 @@ import Header from '../Header/Header';
 import Sort from '../Sort/Sort';
 class ProductView extends Component {
   render() {
-    const { items } = this.props;
+    const { filter } = this.props;
     return (
       <Fragment>
         <Header />
         <Sort />
         <div className="container">
-          {items.map(({ age, id, name, snippet, imageUrl }) => (
+          {filter.map(({ age, id, name, snippet, imageUrl }) => (
             <ProductItem
               key={id}
               img={imageUrl}
@@ -28,6 +28,7 @@ class ProductView extends Component {
 
 const mapStateToProps = state => ({
   items: state.items,
+  filter: state.filter,
 });
 
 export default connect(mapStateToProps)(ProductView);
