@@ -1,40 +1,29 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as itemsOperations from '../Redux/action';
 
-class Sort extends Component {
+export default class Sort extends Component {
   state = {
     value: 'age',
-  };
-  SearchItem = e => {
-    this.props.dispatch(itemsOperations.SearchItem(e.target.value));
-  };
-  SortByAge = () => {
-    this.props.dispatch(itemsOperations.SortByAge());
-  };
-  SortByAlphabetical = () => {
-    this.props.dispatch(itemsOperations.SortByAlphabetical());
   };
   sortChange = e => {
     this.setState({
       value: e.target.value,
     });
+    this.props.updateData(this.state.value);
   };
   render() {
-    const { value } = this.state;
+    const { SearchItem, searchQuery } = this.props;
     return (
       <div className="sort">
         <form>
           <input
             placeholder="I am looking for"
-            onChange={this.SearchItem}
+            value={searchQuery}
+            onChange={SearchItem}
             id="search"
             type="text"
             className="sort__field"
           />
           <select
-            value={value}
-            onClick={value === 'age' ? this.SortByAge : this.SortByAlphabetical}
             onChange={this.sortChange}
             id="select"
             className="sort__select"
@@ -47,9 +36,3 @@ class Sort extends Component {
     );
   }
 }
-
-const mapStateToProps = state => ({
-  items: state.items,
-});
-
-export default connect(mapStateToProps)(Sort);

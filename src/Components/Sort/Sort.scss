@@ -4,7 +4,10 @@
 }
 form {
   width: 70%;
+  display: flex;
+  justify-content: center;
   margin-bottom: 50px;
+  margin-top: 60px;
 }
 .sort__field {
   width: 50%;
@@ -19,6 +22,8 @@ form {
   background: transparent;
   border: none;
   height: 40px;
+  transform: translateY(-30px);
+  width: 105px;
   font-size: 15px;
   margin-top: 35px;
   font-family: 'Monserrat' sans-serif;
