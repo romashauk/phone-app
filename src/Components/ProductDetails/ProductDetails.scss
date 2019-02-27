@@ -1,7 +1,7 @@
 .details {
   display: flex;
   flex-wrap: wrap;
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   padding-top: 40px;
   &__name {
@@ -20,7 +20,10 @@
     width: auto;
   }
   .flex {
-    width: 60%;
+    max-width: 60%;
+  }
+  .img__container.active {
+    border: 2px solid yellow;
   }
   &__description {
     padding-left: 40px;
@@ -32,19 +35,22 @@
   }
   &__list {
     display: flex;
+    flex-wrap: wrap;
   }
-  .item__img {
-    width: 100px;
-    height: 100px;
+  .item__Image {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
   }
   .img__container {
     width: 100px;
-    border: 1px solid black;
+    border: 2px solid black;
     background: transparent;
     margin-top: 40px;
-    height: 100px;
+    height: auto;
     cursor: pointer;
     margin-left: 30px;
+    flex-shrink: 0;
   }
 }
 .row {

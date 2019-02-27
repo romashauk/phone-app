@@ -3,10 +3,13 @@ import React, { Component } from 'react';
 export default class ProductDetails extends Component {
   render() {
     const data = this.props;
+    console.log(data);
+    const ImgUrl =
+      'https://raw.githubusercontent.com/mate-academy/phone-catalogue-static/master/';
     return (
       <div className="details">
         <div className="img">
-          <img className="details__img" src={data.images[1]} alt="item" />
+          <img className="details__img" src={data.mainImg} alt="item" />
         </div>
 
         <div className="flex">
@@ -15,8 +18,20 @@ export default class ProductDetails extends Component {
           <ul className="details__list">
             {data.images.map(item => {
               return (
-                <li className="img__container" key={item}>
-                  <img className="item__img" src={item} alt="img" />
+                <li
+                  className={
+                    data.mainImg === ImgUrl + item
+                      ? 'img__container active'
+                      : 'img__container'
+                  }
+                  key={item}
+                >
+                  <img
+                    className=" item__Image"
+                    onClick={() => data.changeImg(item)}
+                    src={ImgUrl + item}
+                    alt="img"
+                  />
                 </li>
               );
             })}

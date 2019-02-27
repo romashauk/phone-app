@@ -65,7 +65,7 @@ export default class ProductView extends Component {
                   .map(({ age, id, name, snippet, imageUrl }) => (
                     <ProductItem
                       key={id}
-                      img={imageUrl}
+                      img={`https://raw.githubusercontent.com/mate-academy/phone-catalogue-static/master/${imageUrl}`}
                       title={name}
                       snippet={snippet}
                       id={id}
