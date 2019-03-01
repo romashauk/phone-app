@@ -58,25 +58,17 @@
   padding-top: 30px;
   padding-bottom: 30px;
   display: flex;
-
-  .main__container {
-    margin-left: 70px;
-    width: 150px;
-    line-height: 1.42857143;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
-  .main__container:nth-of-type(1) {
-    margin-left: 0;
-  }
-  h2 {
-    font-weight: bold;
-    font-size: 16px;
-  }
+  flex-wrap: wrap;
+}
+.feature-data {
+  width: 200px;
+  line-height: 1.42857143;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   h3 {
     font-weight: 700;
     font-size: 14px;
   }
-  p {
+  div {
     font-size: 13px;
   }
 }
