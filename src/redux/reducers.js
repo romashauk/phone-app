@@ -3,6 +3,7 @@ import {
   GET_PRODUCTS_REQUEST,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_FAILURE,
+  GET_DETAILS_SUCCESS,
 } from './actions';
 
 const reducers = (state = initialState, action) => {
@@ -10,9 +11,13 @@ const reducers = (state = initialState, action) => {
     case 'ADD_ITEM':
       return {
         ...state,
-        cart: [...state.cart, action.id],
+        cart: [...state.cart, action.item],
       };
-
+    case 'REMOVE_ITEM':
+      return {
+        ...state,
+        cart: state.cart.filter(p => p.id !== action.id),
+      };
     case GET_PRODUCTS_REQUEST:
       return {
         ...state,
@@ -32,7 +37,12 @@ const reducers = (state = initialState, action) => {
         productsLoading: false,
         productsError: action.error,
       };
-
+    case GET_DETAILS_SUCCESS:
+      return {
+        ...state,
+        productDetails: action.productDetails,
+        productsLoading: false,
+      };
     default:
       return state;
   }

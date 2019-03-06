@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 class ProductItem extends Component {
   render() {
-    const { img, title, snippet, id, AddItemToCart, added } = this.props;
+    const { img, title, snippet, id, AddItemToCart, cart, item } = this.props;
+    const check = cart.find(i => i.id === item.id);
     return (
       <div className="item">
         <h2 className="item__title">{title}</h2>
@@ -13,11 +14,11 @@ class ProductItem extends Component {
 
         <h3 className="item__snippet">{snippet}</h3>
         <div className="item__buttons ">
-          {!added ? (
+          {!check ? (
             <button
               className="item__btn left"
               onClick={() => {
-                AddItemToCart(id);
+                AddItemToCart(item);
               }}
             >
               Add

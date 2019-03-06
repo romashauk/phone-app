@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import ProductItem from '../ProductItem/ProductItem';
 import Sort from '../Sort/Sort';
 import Loader from '../Loader/Loader';
@@ -10,8 +10,8 @@ class ProductView extends Component {
     searchQuery: '',
     sort: '',
   };
-  AddItemToCart = id => {
-    this.props.dispatch(actions.addItem(id));
+  AddItemToCart = (item, a) => {
+    this.props.dispatch(actions.addItem(item));
   };
   SearchItem = e => {
     this.setState({
@@ -25,11 +25,7 @@ class ProductView extends Component {
     this.props.dispatch(actions.getProducts());
   }
   render() {
-    const {
-      products,
-      productsLoading,
-      productsError,
-    } = this.props;
+    const { products, productsLoading, productsError } = this.props;
 
     const { searchQuery, sort } = this.state;
 
@@ -38,9 +34,7 @@ class ProductView extends Component {
     }
 
     if (productsError) {
-      return (
-        <div>{productsError}</div>
-      );
+      return <div>{productsError}</div>;
     }
 
     return (
@@ -54,8 +48,7 @@ class ProductView extends Component {
             )
             .sort(
               sort === 'age'
-                ? (a, b) =>
-                    a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+                ? (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0)
                 : (a, b) => a.age - b.age
             )
             .map(({ age, id, name, snippet, imageUrl, inCart }, item) => (
@@ -77,13 +70,8 @@ class ProductView extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const {
-    cart,
-    products,
-    productsLoading,
-    productsError,
-  } = state;
+const mapStateToProps = state => {
+  const { cart, products, productsLoading, productsError } = state;
 
   return {
     cart,

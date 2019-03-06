@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 const titles = {
   additionalFeatures: 'Additional Features',
   android: 'Android',
@@ -56,6 +57,10 @@ export default class ProductDetails extends Component {
       'https://raw.githubusercontent.com/mate-academy/phone-catalogue-static/master/';
     return (
       <div className="details">
+        <Link to="/" className="details__btn">
+          <button>Back To Products</button>
+        </Link>
+
         <div className="img">
           <img className="details__img" src={data.mainImg} alt="item" />
         </div>

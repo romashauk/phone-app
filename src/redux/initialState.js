@@ -3,4 +3,5 @@ export default {
   products: [],
   productsLoading: false,
   productsError: null,
+  productDetails: null,
 };
